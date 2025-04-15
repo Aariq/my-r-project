@@ -1,0 +1,22 @@
+# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
+# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
+on:
+  workflow_dispatch: 
+    inputs:
+      skip_long:
+        description: "Skip long-running tests?"
+        required: true
+        default: false
+        type: boolean
+
+name: testing
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    env:
+      RNPN_SKIP_LONG_TESTS: ${{ inputs.skip_long || 'false' }} 
+
+    steps:
+      - name: Echo
+        run: echo "skip is set to $RNPN_SKIP_LONG_TESTS"
