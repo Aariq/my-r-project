@@ -16,7 +16,7 @@ jobs:
   testing:
     runs-on: ubuntu-latest
     env:
-      RNPN_SKIP_LONG_TESTS: ${{ inputs.skip_long || 'false' }} 
+      RNPN_SKIP_LONG_TESTS: ${{ inputs.skip_long || false }} 
 
     steps:
       - name: Echo
